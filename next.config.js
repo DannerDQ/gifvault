@@ -19,13 +19,6 @@ const nextConfig = {
         TRENDING_GIFS: `${API}/v1/gifs/trending?api_key=${KEY}&limit=35&bundle=messaging_non_clips`,
         SEARCH_GIFS: `${API}/v1/gifs/search?api_key=${KEY}&limit=35&bundle=clips_grid_picker`,
         RELATED_GIFS: `${API}/v1/gifs/related?api_key=${KEY}`,
-        // BG_COLORS: [
-        //     "rgb(0, 255, 153)", // Green
-        //     "rgb(0, 204, 255)", // SkyBlue
-        //     "rgb(153, 51, 255)", // Violet
-        //     "rgb(255, 102, 102)", // Red
-        //     "rgb(255, 243, 92)", // Yellow
-        // ]
     },
 }
 

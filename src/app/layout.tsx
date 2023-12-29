@@ -1,7 +1,11 @@
-import "./globals.css"
+import TrendingGifsContextProvider from "@context/trendingGifs";
 import { Metadata } from "next"
-import { ReactNode, useContext } from "react"
-import DeviceContext from "@context/device"
+import GifsContextProvider from "@context/gifs";
+import { params } from "@types";
+import Glitch from "@component/glitch";
+import SearchBar from "@component/searchBar";
+import "./globals.css"
+import { TrendingSearchesContextProvider } from "@context/trendingSearches";
 
 export const metadata:Metadata = {
   title: "GifVault",
@@ -9,16 +13,21 @@ export const metadata:Metadata = {
   icons: "/src/favicon.ico"
 }
 
-export default function RootLayout
-({ children }: { children: ReactNode }) 
-{
-
+export default function RootLayout({ children }: params) {
   return (
     <html lang="es">
       <body>
-        <DeviceContext>
-          {children}
-        </DeviceContext>
+        <header>
+          <Glitch/>
+          <SearchBar/>
+        </header>
+        <main>
+          <TrendingGifsContextProvider>
+            <GifsContextProvider>
+              {children}
+            </GifsContextProvider>
+          </TrendingGifsContextProvider>
+        </main>
       </body>
     </html>
   );

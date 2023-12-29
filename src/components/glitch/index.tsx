@@ -8,36 +8,25 @@ import { useEffect, useReducer } from "react"
 import { useRouter } from "next/router"
 
 // Efecto "Glitch" para un texto dado
-export default function Glitch({ text = "GIFFY" }) {
-	const router = useRouter()
-
-	useEffect(() => {
-		const handleLoad = () => {
-			console.log("Ya se cargó todo...");
-		}
-
-		router.events.on("routeChangeComplete", handleLoad)
-
-		return () => {
-			router.events.off("routeChangeComplete", handleLoad)
-		}
-	})
-
+export default function Glitch({ text = "GIF VAULT" }) {
 	return (
-		<section>
-			<Link href="/">
-				<div className={styles.glitch_container}>
-					<p className={styles.glitch} data-text={text}>
-						<span aria-hidden="true">{text}</span>
-						{text}
-						<span aria-hidden="true">{text}</span>
-					</p>
-				</div>
-			</Link>
-			<br />
-			<Link href="https://giphy.com/" target="_blank" style={{ position: "relative", zIndex: 3 }}>
-				<Image src={poweredByGiphy} alt="Powered by Giphy"/>
-			</Link>
-		</section>
-	)
+    <section className={styles.glitch_wrapper}>
+      <Link href="/">
+        <div className={styles.glitch_container}>
+          <p className={styles.glitch} data-text={text}>
+            <span aria-hidden="true">{text}</span>
+            {text}
+            <span aria-hidden="true">{text}</span>
+          </p>
+        </div>
+      </Link>
+      <Link
+        href="https://giphy.com/"
+        target="_blank"
+        style={{ position: "relative", zIndex: 3 }}
+		    className={styles.giphy}>
+        <Image src={poweredByGiphy} alt="Powered by Giphy" className={styles.giphy_img}/>
+      </Link>
+    </section>
+  );
 }

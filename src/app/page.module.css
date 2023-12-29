@@ -1,0 +1,12 @@
+.title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.title > svg {
+    width: var(--title-svg-size);
+    height: var(--title-svg-size);
+}

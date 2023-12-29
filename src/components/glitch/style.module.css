@@ -1,11 +1,17 @@
-@font-face {
-  font-family: "Bungee Shade";
-  src: url("/src/BungeeShade.ttf");
+.glitch_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
 }
 
 .glitch_container {
   position: relative;
-  text-align: center;
+}
+
+.giphy_img {
+  position: relative;
+  width: var(--pow-by-giphy-size);
+  height: auto;
 }
 
 .glitch,
@@ -13,12 +19,13 @@
   font-family: "Bungee Shade", var(--font-family);
 }
 
-.glitch {
+.glitch { 
   color: #000;
-  font-size: clamp(30px, 5rem, 100px);
-  letter-spacing: 10px;
+  font-size: var(--glitch-font-size);
+  letter-spacing: var(--glitch-letter-spacing);
   line-height: 1;
   text-transform: uppercase;
+  text-align: center;
   position: relative;
   display: inline-block;
   margin: 0;
@@ -47,6 +54,14 @@
   animation: glitch 375ms infinite;
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
   opacity: 0.75;
+}
+
+.giphy {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
 }
 
 @keyframes paths {
@@ -332,6 +347,9 @@
   }
 }
 
-@media only screen and (max-width: 768px){
-  
+@media screen and ((min-width: 760px) or (min-device-width: 760px)) {
+  .giphy {
+    justify-items: left;
+    justify-content: left;
+  }
 }

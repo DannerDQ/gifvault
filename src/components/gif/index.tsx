@@ -14,11 +14,10 @@ function Gif({ gif, bg_color }: { gif: gifType, bg_color: string }) {
 
 	return (
 		<div
-			style={{ backgroundColor: bg_color, width, height }}
+			style={{ backgroundColor: bg_color}}
 			className={styles.gif}
 			data-id={gif.id}
 			onClick={handleClick}
-			onKeyDown={() => {}}
 		>
 			<picture>
 				<source type="image/webp" srcSet={srcSet} />

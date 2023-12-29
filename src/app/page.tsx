@@ -4,9 +4,9 @@ import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
 import styles from "./page.module.css"
 import { HotIcon, TrendingIcon } from "@icons";
-import TrendingGifs from "@context/trendingGifs";
 import TrendingSearchesCarrousel from "@component/TrendingSearchesCarrousel";
 import { TrendingSearchesContextProvider } from "@context/trendingSearches";
+import Trending from "@component/trendingGifs";
 
 export default function App() {
   const [mobile, setMobile] = useState(false)
@@ -31,12 +31,12 @@ export default function App() {
           <TrendingSearchesCarrousel/>
         </TrendingSearchesContextProvider>
       </section>
-      <section className={styles.trending_gifs_wrapper}>
+      <section className={styles.trending}>
         <div className={styles.title}>
           <HotIcon />
           <h2>Trending Gifs</h2>
         </div>
-        {/* <TrendingGifs /> */}
+        <Trending/>
       </section>
     </>
   );

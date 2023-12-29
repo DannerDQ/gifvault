@@ -10,3 +10,9 @@
     width: var(--title-svg-size);
     height: var(--title-svg-size);
 }
+
+.trending {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}

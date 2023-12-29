@@ -1,0 +1,26 @@
+.gif {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.gif,
+.gif img {
+  border-radius: var(--border-radius);
+}
+
+.title {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: auto;
+  font-weight: 500;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: small;
+  padding: 0.2em 0.4em;
+}

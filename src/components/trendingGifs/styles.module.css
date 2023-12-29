@@ -1,0 +1,5 @@
+.trending_gifs_wrapper {
+    overflow: hidden scroll;
+    padding-bottom: 3em;
+    height: 100%;
+}

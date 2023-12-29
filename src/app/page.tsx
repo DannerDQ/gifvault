@@ -10,6 +10,7 @@ import { TrendingSearchesContextProvider } from "@context/trendingSearches";
 
 export default function App() {
   const [mobile, setMobile] = useState(false)
+  const [sc, setSc] = useState("");
   const isMobile = useMediaQuery({
   query:
     "((max-device-width: 768px) and (max-device-height: 1024px)) or ((max-width: 768px) and (max-height: 1024px))",
@@ -25,10 +26,10 @@ export default function App() {
       <section>
         <div className={styles.title}>
           <TrendingIcon />
-          <h2>Trending Searches</h2>
+          <h2>Trending Searches - {sc}</h2>
         </div>
         <TrendingSearchesContextProvider>
-          <TrendingSearchesCarrousel />
+          <TrendingSearchesCarrousel s = {setSc}/>
         </TrendingSearchesContextProvider>
       </section>
       <section className={styles.trending_gifs_wrapper}>

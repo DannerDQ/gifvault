@@ -1,7 +1,7 @@
-import { gif } from "@types"
+import { Gif } from "@types"
 
 // Elimina los gif's repetidos
-export default function withoutRepeat(...gifs: gif[]) {
+export default function withoutRepeat(...gifs: Gif[]) {
 	const set = new Set()
 
 	return gifs.filter((gif) => {

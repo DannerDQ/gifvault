@@ -40,7 +40,7 @@ export default function TrendingSearchesCarrousel() {
 
 			const min = Math.min(
 				scrollLeft + ul.clientWidth,
-				scrollWidth - ul.clientWidth
+				scrollWidth - ul.offsetWidth
 			);
 
 			ul.scroll(min, 0);
@@ -61,7 +61,7 @@ export default function TrendingSearchesCarrousel() {
 		else hideLeft && setHideLeft(false); // Actualiza hideLeft a false
 
 		// Scroll máximo que se puede hacer, al no haber una propiedad "scrollRight", debe calcularse
-		const maxScroll = scrollWidth - ref.current.clientWidth;
+		const maxScroll = scrollWidth - ref.current.offsetWidth;
 		
 		// Comprueba si el scroll está en el final
 		if (scrollLeft == maxScroll)!hideRight && setHideRight(true); // Actualiza hideRight a verdadero

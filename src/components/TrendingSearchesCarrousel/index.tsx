@@ -68,8 +68,7 @@ export default function TrendingSearchesCarrousel({
 		else hideLeft && setHideLeft(false); // Actualiza hideLeft a false
 
 		// Comprueba si el scroll está en el final
-		if (scrollLeft == maxScroll)
-		!hideRight && setHideRight(true); // Actualiza hideRight a verdadero
+		if (scrollLeft >= maxScroll)!hideRight && setHideRight(true); // Actualiza hideRight a verdadero
 		else hideRight && setHideRight(false); // Actualiza hideRight a false
 	
 		s(`${scrollLeft} | ${scrollWidth} | ${maxScroll} | ${hideLeft} | ${hideRight} `);

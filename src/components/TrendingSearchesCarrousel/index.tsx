@@ -72,7 +72,7 @@ export default function TrendingSearchesCarrousel({
 		!hideRight && setHideRight(true); // Actualiza hideRight a verdadero
 		else hideRight && setHideRight(false); // Actualiza hideRight a false
 	
-		s(`${scrollLeft} | ${scrollWidth} | ${hideLeft} | ${hideRight} `);
+		s(`${scrollLeft} | ${scrollWidth} | ${maxScroll} | ${hideLeft} | ${hideRight} `);
 	}, [scrollState, hideLeft, hideRight, s]);
 
   return (

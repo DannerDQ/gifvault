@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { gif as gifType } from "@types"
+import { Gif as gifType } from "@types"
 import getRandomBgColor from "@util/getRandomBgColor"
 import { memo } from "react"
 

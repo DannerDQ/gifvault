@@ -20,13 +20,15 @@ export default function TrendingSearchesCarrousel({
   const [scrollState, setScrollState] = useState({
     scrollLeft: 0,
     scrollWidth: 0,
+	maxScroll: 0,
   });
 
   const handleScroll = () => {
     if (!ref.current) return;
 
-    const { scrollLeft, scrollWidth } = ref.current;
-    setScrollState({ scrollLeft, scrollWidth });
+    const { scrollLeft, scrollWidth, clientWidth } = ref.current;
+	const maxScroll = scrollWidth - clientWidth
+    setScrollState({ scrollLeft, scrollWidth, maxScroll });
   };
 
   const handleLeftScroll = () => {
@@ -40,11 +42,11 @@ export default function TrendingSearchesCarrousel({
   const handleRightScroll = () => {
     if (ref.current) {
       const ul = ref.current;
-      const { scrollLeft, scrollWidth } = scrollState;
+      const { scrollLeft, scrollWidth, maxScroll } = scrollState;
 
       const min = Math.min(
         scrollLeft + ul.clientWidth,
-        scrollWidth - ul.clientWidth
+        maxScroll
       );
 
       ul.scroll(min, 0);
@@ -56,7 +58,7 @@ export default function TrendingSearchesCarrousel({
 
   // Actualiza los estados "hideLeft" y "hideRight" según convenga
   	useEffect(() => {
-		const { scrollLeft, scrollWidth } = scrollState;
+		const { scrollLeft, scrollWidth, maxScroll } = scrollState;
 
 		if (!scrollWidth || !ref.current) return;
 
@@ -65,16 +67,13 @@ export default function TrendingSearchesCarrousel({
 		!hideLeft && setHideLeft(true); // Actualiza hideLeft a verdadero
 		else hideLeft && setHideLeft(false); // Actualiza hideLeft a false
 
-		// Scroll máximo que se puede hacer, al no haber una propiedad "scrollRight", debe calcularse
-		const maxScroll = scrollWidth - ref.current.clientWidth;
-
 		// Comprueba si el scroll está en el final
 		if (scrollLeft == maxScroll)
 		!hideRight && setHideRight(true); // Actualiza hideRight a verdadero
 		else hideRight && setHideRight(false); // Actualiza hideRight a false
 	
 		s(`${scrollLeft} | ${scrollWidth} | ${hideLeft} | ${hideRight} `);
-	}, [scrollState, hideLeft, hideRight]);
+	}, [scrollState, hideLeft, hideRight, s]);
 
   return (
     <section className={styles.trending_searches_container}>

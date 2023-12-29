@@ -4,7 +4,7 @@ import getRandomBgColor from "@util/getRandomBgColor"
 import { memo } from "react"
 
 // Componente para visualizar un gif 
-function Gif({ gif }: { gif: gifType }) {
+function Gif({ gif, bg_color }: { gif: gifType, bg_color: string }) {
 	const { id, srcSet, url, title, width, height } = gif
 	const backgroundColor = getRandomBgColor()
 
@@ -14,7 +14,7 @@ function Gif({ gif }: { gif: gifType }) {
 
 	return (
 		<div
-			style={{ backgroundColor, width, height }}
+			style={{ backgroundColor: bg_color, width, height }}
 			className={styles.gif}
 			data-id={gif.id}
 			onClick={handleClick}

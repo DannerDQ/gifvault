@@ -8,11 +8,7 @@ import isInRange from "@util/isInRange"
 import { Dispatch, MutableRefObject, SetStateAction, useContext, useEffect, useRef, useState } from "react"
 
 // Carrito para mostrar las búsquedas más populares 🎠
-export default function TrendingSearchesCarrousel({
-  s,
-}: {
-  s: Dispatch<SetStateAction<string>>;
-}) {
+export default function TrendingSearchesCarrousel() {
   const { trendingSearches } = useContext(trendingSearchesContext);
   const ref: MutableRefObject<HTMLUListElement | null> = useRef(null);
   const [hideLeft, setHideLeft] = useState(true);
@@ -71,8 +67,7 @@ export default function TrendingSearchesCarrousel({
 		if (scrollLeft >= maxScroll)!hideRight && setHideRight(true); // Actualiza hideRight a verdadero
 		else hideRight && setHideRight(false); // Actualiza hideRight a false
 	
-		s(`${scrollLeft} | ${scrollWidth} | ${maxScroll} | ${hideLeft} | ${hideRight} `);
-	}, [scrollState, hideLeft, hideRight, s]);
+	}, [scrollState, hideLeft, hideRight]);
 
   return (
     <section className={styles.trending_searches_container}>
